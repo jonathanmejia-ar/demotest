@@ -1,0 +1,9 @@
+.container {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+.container input {
+  max-width: 400px;
+}

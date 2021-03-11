@@ -1,0 +1,48 @@
+* {
+  background: #2f3640;
+}
+
+.login-box {
+  width: 280px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.login-box h1 {
+  font-size: 40px;
+  border-bottom: 5px solid white;
+  margin-bottom: 30px;
+  padding: 13px;
+}
+
+.text-box {
+  width: 100%;
+  overflow: hidden;
+  font-size: 20px;
+  padding: 8px 0;
+  margin: 8px 0;
+  border-bottom: 1px solid;
+}
+
+.text-box i {
+  width: 26px;
+  float: left;
+  text-align: center;
+}
+
+.text-box input {
+  border: none;
+  outline: none;
+  background: none;
+  color: white;
+  font-size: 18px;
+  width: 80%;
+  margin: 0 10px;
+}
+
+.text-box input::placeholder {
+  color: gray;
+}
