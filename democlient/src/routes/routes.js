@@ -8,9 +8,9 @@ function Routes() {
   return (
     <Router>
       <Switch>
+        <Route exact path='/' component={Login}></Route>
         <Route exact path='/dashboard' component={Dashboard}></Route>
         <Route exact path='/pages/:pagename' component={Page}></Route>
-        <Route exact path='/' component={Login}></Route>
       </Switch>
     </Router>
   );
