@@ -6,7 +6,7 @@ export const createWeb = async (req, res) => {
     name = name.toLowerCase();
     const createdWeb = new Web({ name, user: user });
     await createdWeb.save();
-    res.status(200).json({ success: true, message: 'Web created successfully', data: createdWeb });
+    res.status(201).json({ success: true, message: 'Web has been created', data: createdWeb });
 };
 
 export const getWebs = async (req, res) => {
