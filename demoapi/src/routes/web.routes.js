@@ -6,6 +6,6 @@ const router = Router();
 router.post('/', webCtrl.createWeb);
 router.get('/', webCtrl.getWebs);
 router.get('/:id', webCtrl.getWeb);
-router.get('/byname/:id', webCtrl.getWebByName);
+router.get('/byname/:pagename', webCtrl.getWebByName);
 
 export default router;

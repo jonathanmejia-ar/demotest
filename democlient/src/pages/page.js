@@ -3,20 +3,15 @@ import axios from "axios";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const firebaseApiKey = "AIzaSyA7_vAHKDIErc8SnpYXWQkBiNrWA7J68e0";
-const localurl = "http://192.168.0.26:3000";
-const api_url = "http://192.168.0.26:4000";
+const local_url = "http://192.168.0.26:3000";
+const deployed_url = "https://demotestclient.netlify.app/";
+const api_url = "https://tranquil-earth-28487.herokuapp.com";
 
 export default class Page extends Component {
   state = {
     user: "",
-    page: "",
-    sharedClicked: false,
     url: "",
   };
-
-  handleSharedClick() {
-    this.setState({ sharedClicked: true });
-  }
 
   componentDidMount() {
     const {
@@ -24,7 +19,7 @@ export default class Page extends Component {
     } = this.props;
 
     axios
-      .get(`${api_url}/webs/byname/${params.id}`)
+      .get(`${api_url}/webs/byname/${params.pagename}`)
       .then((response) => {
         const user = response.data.data.user.username;
         this.setState({ user: user });
@@ -34,12 +29,12 @@ export default class Page extends Component {
       });
   }
 
-  shareLink = (page) => {
+  shareLink = (pageName) => {
     const deepLink = `https://firebasedynamiclinks.googleapis.com/v1/shortLinks?key=${firebaseApiKey}`;
     const deepBody = {
       dynamicLinkInfo: {
         domainUriPrefix: "https://mynewcoolpage.page.link",
-        link: `${localurl}/pages/${page}`,
+        link: `${deployed_url}/pages/${pageName}`,
         androidInfo: {
           androidPackageName: "com.example.android",
         },
@@ -61,7 +56,7 @@ export default class Page extends Component {
   };
 
   render() {
-    const pageName = this.props.match.params.id;
+    const pageName = this.props.match.params.pagename;
     return (
       <div>
         <h3 style={{ color: "#fff" }}>This page is for {this.state.user}</h3>

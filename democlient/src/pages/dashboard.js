@@ -3,7 +3,7 @@ import "../css/dashboard.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const api_url = "http://192.168.0.26:4000";
+const api_url = "https://tranquil-earth-28487.herokuapp.com";
 
 export default class Dashboard extends Component {
   state = {

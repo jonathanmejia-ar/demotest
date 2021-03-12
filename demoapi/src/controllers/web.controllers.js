@@ -1,8 +1,9 @@
 import Web from '../models/web.model';
 
 export const createWeb = async (req, res) => {
-    const { name, user } = req.body;
-    console.log(user);
+    const { user } = req.body;
+    let { name } = req.body;
+    name = name.toLowerCase();
     const createdWeb = new Web({ name, user: user });
     await createdWeb.save();
     res.status(200).json({ success: true, message: 'Web created successfully', data: createdWeb });
@@ -20,7 +21,7 @@ export const getWeb = async (req, res) => {
 }
 
 export const getWebByName = async (req, res) => {
-    const page = req.params.id;
+    const page = req.params.pagename;
     const web = await Web.findOne({ name: page }).populate('user');
     console.log(web);
     res.status(200).json({ success: true, data: web });
