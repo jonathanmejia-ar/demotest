@@ -24,8 +24,6 @@ export default class Login extends Component {
   };
 
   login = () => {
-    let user = { ...this.state.form };
-    console.log(user);
     axios
       .post(`${url_api}/login`, {
         username: this.state.form.username,

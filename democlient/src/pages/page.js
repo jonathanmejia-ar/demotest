@@ -14,6 +14,11 @@ export default class Page extends Component {
   };
 
   componentDidMount() {
+    this.getUserByPage();
+  }
+
+  //I don't like this, but I don't know yet how to correctly pass a prop to a component from another file.
+  getUserByPage = () => {
     const {
       match: { params },
     } = this.props;
@@ -27,7 +32,7 @@ export default class Page extends Component {
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
 
   shareLink = (pageName) => {
     const deepLink = `https://firebasedynamiclinks.googleapis.com/v1/shortLinks?key=${firebaseApiKey}`;
